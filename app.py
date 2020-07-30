@@ -31,6 +31,13 @@ def home():
             return render_template('index.html', data=getfollowedby(username))
         return render_template('index.html')
 
+@app.route('/game', methods=['GET','POST'])
+def game():
+    """Game control"""
+    if session.get('logged_in'):
+        return render_template('game.html')
+    else:
+        return render_template('index.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

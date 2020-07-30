@@ -4,18 +4,31 @@
     <title>Login</title>
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='bootstrap/css/bootstrap.css') }}"/>
   </head>
+  <style>
+      .container{text-align: center}
+   .navbar-brand {
+    height: 35px;
+    font-size: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    }
+    a {position: relative;}
+    body{font-size: 16px}
+}
+  </style>
   <body>
     <div class="container">
         <h1><a href="/">Math In Covid</a></h1>
-      <div class="navbar">
+      <div class="navbar navbar-inverse navbar-fixed-top">
 	          <div class="navbar-inner">
 	            <div class="container">
 	              <ul class="nav">
-	                <li class="active"><a href="#">Home</a></li>
+                    <li><a class="navbar-brand" href="/">Math In Covid</a></li>
+	                <li><a href="#">Home</a></li>
 	                <li><a href="/register/">Register</a></li>
 	                <li><a href="/login">Login</a></li>
 	                <li><a href="#">About</a></li>
-	                <li><a href="#">Contact</a></li>
+	                <li><a href="/game">Games</a></li>
 	              </ul>
 	            </div>
 	          </div>

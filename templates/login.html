@@ -6,12 +6,18 @@
   {% if data %}
 	<h3>{{data}}</h3>
 	{% endif %}
-<h2>Login</h2>
-<form action="/login" method="POST">
-  <input type="username" name="username" placeholder="Username">
-  <input type="password" name="password" placeholder="Password">
-  <input type="submit" value="Log in">
-</form>
-
+<div class="container">
+    <div class="hero-unit">
+        <h2>Login</h2>
+        <form action="/login" class="well" method="POST">
+          <br/>
+          <input type="username" class="span3" name="username" placeholder="Username">
+          <br/>
+          <input type="password" class="span3" name="password" placeholder="Password">
+          <br/>
+          <button type="submit" class="btn btn-lg btn-primary">Log In</button>
+        </form>
+    </div>
+</div>
 {% endif %}
 {% endblock %}
