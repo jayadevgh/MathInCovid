@@ -1,8 +1,11 @@
 """Flask Login Example and instagram fallowing find"""
 
-from flask import Flask, url_for, render_template, request, redirect, session
+from flask import Flask, url_for, render_template, request, redirect, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
+import json
 from instagram import getfollowedby, getname
+from simplemathgames import pythagorean_game, get_random_numbers
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
@@ -35,9 +38,32 @@ def home():
 def game():
     """Game control"""
     if session.get('logged_in'):
+
         return render_template('game.html')
     else:
         return render_template('index.html')
+
+@app.route('/game/pythaggame', methods=['GET', 'POST'])
+def game_start():
+    """StartGame Control"""
+    a,b = get_random_numbers()
+    return render_template('pythaggame.html', number=[a,b])
+
+@app.route('/game/pythaggame_update', methods=['POST'])
+def game_update():
+    hypot = request.data
+    print(type(hypot))
+    data_str = hypot.decode('utf8')
+    data_list = data_str.split(',')
+    print(data_list)
+
+    print("********")
+    # content = hypot.get_json()
+    # get_jsonprint(content)
+
+    calculation_data = pythagorean_game(int(data_list[0].replace('"', '')), int(data_list[1]), int(data_list[2].replace('"', '')))
+    return calculation_data
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
