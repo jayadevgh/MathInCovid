@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pythag_Game</title>
+</head>
+<style>
+    .alert-primary {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    width: 500px
+}
+</style>
+<body>
+<div class="container">
+    <h1>Welcome to the Pythagorean Thereom Game</h1>
+    <h2>Use the 2 numbers to find the hypotenuse</h2>
+    <h2>Please round down your answer</h2>
+    <h1 id="first">{{number[0]}}</h1>
+    <h1 id="second">{{number[1]}}</h1>
+    <div class="alert alert-success" style="display: none">
+
+            <h4>
+
+            </h4>
+
+    </div>
+   <div class="alert alert-info" style="display: " >
+
+            <h4>
+            </h4>
+
+    </div>
+       <div class="alert alert-error" style="display: none">
+
+            <h4>
+
+            </h4>
+
+    </div>
+    <label for="result">Enter Answer:</label>
+    <input type="number" name="result" placeholder="ex. 5" id="result">
+    <button type="submit" class="btn btn-lg btn-primary" id="result_submit"> Submit</button>
+
+</div>
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+
+$("#result_submit").click(function() {
+    var getData;
+    var value = $('#result').val();
+    var val1 = {{number[0]}};
+    var val2 = {{number[1]}};
+    var data = val1 + ","  + val2  + "," + value;
+    $.ajax({
+      type: 'POST',
+      url: "/game/pythaggame_update",
+      data: JSON.stringify(data),
+      contentType: "application/json;charset=utf-8",
+      dataType: "json",
+
+         statusCode: {
+               200: function (response) {
+                      // do your stuff here
+                      console.log("let's check if it comes here")
+                      var resp = JSON.stringify(response['responseText'])
+                      alert(resp);
+                      $(".alert").text(resp);
+                    }
+         }
+
+<!--      success: function (resp, status, xhr) {-->
+<!--         getData = resp;-->
+<!--         alert(xhr);-->
+<!--         alert(resp);-->
+
+<!--       },-->
+    });
+
+  });
+</script>
+</html>
+{% endif %}
+{% endblock %}
