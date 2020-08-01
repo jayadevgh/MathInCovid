@@ -44,13 +44,12 @@ def game():
         return render_template('index.html')
 
 @app.route('/game/pythaggame', methods=['GET', 'POST'])
-def game_start():
-    """StartGame Control"""
+def pygame_start():
     a,b = get_random_numbers()
     return render_template('pythaggame.html', number=[a,b])
 
 @app.route('/game/pythaggame_update', methods=['POST'])
-def game_update():
+def pygame_update():
     hypot = request.data
     print(type(hypot))
     data_str = hypot.decode('utf8')
@@ -69,6 +68,13 @@ def quiz():
     """Quiz control"""
     if session.get('logged_in'):
         return render_template('quiz.html')
+    else:
+        return render_template('index.html')
+
+@app.route('/quiz/algQuiz')
+def algQuiz():
+    if session.get('logged_in'):
+        return render_template('algQuiz.html')
     else:
         return render_template('index.html')
 

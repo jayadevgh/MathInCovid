@@ -15,6 +15,7 @@
 }
 </style>
 <body>
+
 <div class="container">
     <h1>Welcome to the Pythagorean Thereom Game</h1>
     <h2>Use the 2 numbers to find the hypotenuse</h2>
@@ -70,7 +71,6 @@ $("#result_submit").click(function() {
                       // do your stuff here
                       console.log("let's check if it comes here")
                       var resp = JSON.stringify(response['responseText'])
-                      alert(resp);
                       $(".alert").text(resp);
                     }
          }

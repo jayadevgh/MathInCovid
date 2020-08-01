@@ -13,7 +13,7 @@ def pythagorean_game(a, b, result):
    player1score = 0
    if (answer==result):
       player1score=player1score+1
-      return("CORRECT! Your score is "+ str(player1score))
+      return("CORRECT! Take some cookie points!")
    elif (answer!=result):
       return("Incorrect")
 
