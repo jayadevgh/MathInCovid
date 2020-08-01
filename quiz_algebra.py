@@ -60,11 +60,11 @@ if pr9 == '5' or pr9 == '5.0':
 else:
     print("incorrect, answer is 5")
 
-pr10 = input("2x + 5 = 15")
-if pr10 == '10' or pr10 == '10.0':
+pr10 = input("2x + 7 = 21 (find x)")
+if pr10 == '7' or pr10 == '7.0':
     print("Correct, you got the right answer!")
 else:
-    print("incorrect, answer is 10")
+    print("incorrect, answer is 7")
 
 
 # The button is going to be in javascript (it is easier to code)
