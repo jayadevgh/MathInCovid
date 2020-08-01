@@ -64,6 +64,27 @@ def game_update():
     calculation_data = pythagorean_game(int(data_list[0].replace('"', '')), int(data_list[1]), int(data_list[2].replace('"', '')))
     return calculation_data
 
+@app.route('/quiz')
+def quiz():
+    """Quiz control"""
+    if session.get('logged_in'):
+        return render_template('quiz.html')
+    else:
+        return render_template('index.html')
+
+@app.route('/lesson')
+def lesson():
+    """Lesson Page"""
+    if session.get('logged_in'):
+
+        return render_template('lesson.html')
+    else:
+        return render_template('index.html')
+
+@app.route('/about', methods=['GET','POST'])
+def about():
+    """About Page"""
+    return render_template('about.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
