@@ -123,6 +123,14 @@ def algQuiz():
         return render_template('index.html')
 
 
+@app.route('/quiz/engQuiz')
+def engQuiz():
+    if session.get('logged_in'):
+        return render_template('engQuiz.html')
+    else:
+        return render_template('index.html')
+
+
 @app.route('/lesson')
 def lesson():
     """Lesson Page"""

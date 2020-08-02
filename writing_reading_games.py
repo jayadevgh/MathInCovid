@@ -10,7 +10,7 @@ if input1 == "It is so sunny outside, today.":
     score += 5
 else:
     print("Nice Try. Copy the sentence exactly.")
-input2 = str(input(" The village groceries store has the root vegetable called carrots. "))
+input2 = str(input("The village groceries store has the root vegetable called carrots."))
 if input2 == "The village groceries store has the root vegetable called carrots.":
     print("Good Job! Wonderful Typing!")
     score += 5
