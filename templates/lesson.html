@@ -2,6 +2,11 @@
 {% block content %}
 {% if session['logged_in'] %}
 <html lang="en">
+<style>
+    body {
+        margin-left: 20px
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <title>Lesson</title>
@@ -9,13 +14,24 @@
 <body>
     <h2>Advanced Math Lessons:</h2>
     <br/>
-    <p>Insert/Create a video here</p>
+    <h3>Pythagorean Thereom</h3>
+    <a href="https://drive.google.com/file/d/1xUJQkeMTT0vqf1uHPMfgJJQZiSwCOi_N/view?usp=sharing">Click to go to Pythagorean Theroem Video</a>
+    <br/>
+    <br/>
+    <h3>Algebra 1</h3>
+    <a href="https://drive.google.com/file/d/1frK8wwAvEBjEeK2107zYCa0vuT3tlJm-/view?usp=sharing">Click to go to Algebra Video</a>
     <br/>
     <br/>
     <h2>Reading/Writing Lessons:</h2>
     <br/>
+    <h3>Grammar 1</h3>
+    <video id="grammar" controls="controls" width="800" height="500" src="/static/bootstrap/aud/Lessongrammar.mov"></video>
+    <br/>
     <br/>
     <h2>Simple Math Lessons:</h2>
+    <a href="https://drive.google.com/file/d/1SspMpDui7KV5-SnWNQpYwf8MqRtNnKgP/view?usp=sharing">Click to go to Operation Video</a>
+    <br/>
+    <br/>
 </body>
 </html>
 {% endif %}

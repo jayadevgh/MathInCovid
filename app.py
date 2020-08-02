@@ -4,7 +4,7 @@ from flask import Flask, url_for, render_template, request, redirect, session, j
 from flask_sqlalchemy import SQLAlchemy
 import json
 from instagram import getfollowedby, getname
-from simplemathgames import pythagorean_game, get_random_numbers
+from mathgames import pythagorean_game, get_random_numbers, get_random_operator, operation_game
 
 
 app = Flask(__name__)
@@ -34,19 +34,21 @@ def home():
             return render_template('index.html', data=getfollowedby(username))
         return render_template('index.html')
 
+
 @app.route('/game', methods=['GET','POST'])
 def game():
     """Game control"""
     if session.get('logged_in'):
-
         return render_template('game.html')
     else:
         return render_template('index.html')
+
 
 @app.route('/game/pythaggame', methods=['GET', 'POST'])
 def pygame_start():
     a,b = get_random_numbers()
     return render_template('pythaggame.html', number=[a,b])
+
 
 @app.route('/game/pythaggame_update', methods=['POST'])
 def pygame_update():
@@ -63,6 +65,14 @@ def pygame_update():
     calculation_data = pythagorean_game(int(data_list[0].replace('"', '')), int(data_list[1]), int(data_list[2].replace('"', '')))
     return calculation_data
 
+
+@app.route('/game/operationgame', methods=['GET', 'POST'])
+def opgame_start():
+    a, b = get_random_numbers()
+    c = get_random_operator()
+    return render_template('operationgame.html', number=[a, b, c])
+
+
 @app.route('/quiz')
 def quiz():
     """Quiz control"""
@@ -71,12 +81,14 @@ def quiz():
     else:
         return render_template('index.html')
 
+
 @app.route('/quiz/algQuiz')
 def algQuiz():
     if session.get('logged_in'):
         return render_template('algQuiz.html')
     else:
         return render_template('index.html')
+
 
 @app.route('/lesson')
 def lesson():
@@ -87,10 +99,12 @@ def lesson():
     else:
         return render_template('index.html')
 
+
 @app.route('/about', methods=['GET','POST'])
 def about():
     """About Page"""
     return render_template('about.html')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

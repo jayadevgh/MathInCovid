@@ -4,18 +4,17 @@
 <html lang="en">
 <style>
     #after_submit {
-	visibility: hidden;
-	background: #ff5459;
-	padding: 10px 20px 10px 20px;
-	width: 400px;
-	border-radius: 20px;
-	float: left;
-	margin-left: 550px;
-	font-size: 30px;
+        visibility: hidden;
+        margin-left: 250px;
+        padding: 10px 20px 10px 20px;
+        width: 400px;
+        border-radius: 20px;
+        float: left;
+        font-size: 30px;
 
 }
     #quiz {
-        margin-left: 550px;
+        margin-left: 250px;
         background: #d2def2;
         padding: 10px 20px 10px 20px;
         width: 400px;
@@ -57,11 +56,9 @@
     <meta charset="UTF-8">
     <title>Alg Quiz</title>
 </head>
-<body>
     <div class="container">
         <h1>Algebra Quiz 1</h1>
         <h2>Please type your answers in integer format</h2>
-    </div>
     <form id="quiz" name="quiz">
         <h3>Part 1: Multiple Choice</h3><br>
         <p><strong>1. </strong>5x - 4 + 3 + x = 9 - 4 (find x)</p>
@@ -107,12 +104,14 @@
         <input class="span3" id="textbox" type="text" name="question10"><br>
         <input type=button id="button" value="I'm Finished!" onclick="check();">
     </form>
+
     <br/>
     <br/>
     <div id="after_submit">
         <p id="message"></p>
         <p id="number_correct"></p>
         <img id="picture">
+    </div>
     </div>
 </body>
 <script>
@@ -153,6 +152,7 @@
 
         var messages = ["Did you try at all?", "Study hard and try again", "Almost there, just study a bit more", "You did it! Great job!"];
         var pictures = ["/static/bootstrap/img/bruh.gif", "/static/bootstrap/img/i-dont-know.gif", "/static/bootstrap/img/almost-there.gif", "/static/bootstrap/img/success-gif.gif"]
+        var colors = ["#ff5459", "#FF8C00", "#FFFF66", "#62c462"]
 
         var range;
         if(correct>-1 && correct < 4){
@@ -167,6 +167,7 @@
 
 
         document.getElementById("after_submit").style.visibility = "visible";
+        document.getElementById("after_submit").style.background = colors[range];
 
         document.getElementById("message").innerHTML = messages[range];
         document.getElementById("number_correct").innerHTML = "You got " + correct + "/10 of your answers correct.";
