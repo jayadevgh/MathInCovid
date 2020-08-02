@@ -62,15 +62,48 @@ def pygame_update():
     # content = hypot.get_json()
     # get_jsonprint(content)
 
-    calculation_data = pythagorean_game(int(data_list[0].replace('"', '')), int(data_list[1]), int(data_list[2].replace('"', '')))
+    calculation_data = pythagorean_game(int(data_list[0].replace('"', '')), int(data_list[1]),
+                                        int(data_list[2].replace('"', '')))
     return calculation_data
 
 
-@app.route('/game/operationgame', methods=['GET', 'POST'])
-def opgame_start():
+@app.route('/game/operationgame', defaults={"number_data": 0})
+@app.route('/game/operationgame/<number_data>', methods=['GET', 'POST'])
+def opgame_start(number_data):
+    data = ""
     a, b = get_random_numbers()
+    data += str(a) + ","
+    data += str(b) + ","
     c = get_random_operator()
-    return render_template('operationgame.html', number=[a, b, c])
+    data += str(c)
+    if number_data:
+        return data
+    else:
+        return render_template('operationgame.html', number=[a, b, c])
+
+
+@app.route('/game/operationgame_api')
+def opgame_api():
+    data = []
+    a, b = get_random_numbers()
+    data.append(a)
+    data.append(b)
+    c = get_random_operator()
+    data.append(c)
+    return data
+
+@app.route('/game/operationgame_update', methods=['POST'])
+def opgame_update():
+    res = request.data
+    print(type(res))
+    data_str = res.decode('utf8')
+    data_list = data_str.split(',')
+    print(data_list)
+
+    print("********")
+    calculation_data = operation_game(data_list[0].replace('"', ''), int(data_list[1]), int(data_list[2]),
+                                      float(data_list[3].replace('"', '')))
+    return calculation_data
 
 
 @app.route('/quiz')

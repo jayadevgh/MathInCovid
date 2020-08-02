@@ -6,12 +6,51 @@
     body {
         margin-left: 20px
     }
+    #button{
+        background: #62c462;
+        border: 1px solid #62c462;
+        border-radius: 5px;
+        padding: 10px;
+        color: white;
+        font-size: 16px;
+        margin-top: 15px;
+    }
+    #point{
+        padding: 0px 0px 0px 15px;
+        width: 250px;
+        border-radius: 5px;
+        background: #d2def2;
+        height: 35px;
+
+    }
+    #round-button{
+        background: #66CCCC;
+        border: 1px solid #66CCCC;
+        border-radius: 5px;
+        padding: 10px;
+        color: white;
+        font-size: 16px;
+        margin-top: 15px;
+    }
+    #round-button:hover{
+        background: white;
+        color: black;
+        cursor: pointer;
+    }
+    #button:hover{
+        background: white;
+        color: black;
+        cursor: pointer;
+    }
     #textbox {
         height: 25px;
         font-size: 16px;
         border-radius: 5px;
         border: none;
         padding-left: 5px;
+    }
+    p {
+        font-size: 22px
     }
 </style>
 <head>
@@ -21,15 +60,77 @@
 <body>
     <h1>Welcome to the operation trainer!</h1>
     <br/>
-    <h3>{{number[0]}} {{number[2]}} {{number[1]}} =</h3>
+    <p><span id="num1">{{number[0]}}</span> <span id="op">{{number[2]}}</span> <span id="num2">{{number[1]}}</span></p>
     <input id="textbox" type="text" name="question1">
     <br/>
     <br/>
-    <input id="">
+    <input id="button" type="button" value="Submit">
+    <input id="round-button" type="button" value="Next Round">
+    <h2 id="point">
+        Score:
 
+    </h2>
 </body>
 <script>
+var count = 0;
+var success = 0;
+$("#round-button").click(function(){
+    $.ajax({
+        type: 'POST',
+        url: "/game/operationgame/1",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
 
+        statusCode: {
+            200: function (res1) {
+                var resp = JSON.stringify(res1['responseText'])
+                var a = resp.split(",")
+                $("#num1").text(a[0].split('"')[1]);
+                $("#num2").text(a[1]);
+                $("#op").text(a[2].split('"')[0]);
+
+
+            }
+        }
+    });
+});
+
+$("#button").click(function() {
+    var getData;
+    var value = $('#textbox').val();
+    var val1 = $("#num1").text();
+    var val2 = $("#num2").text();
+    var operator = $("#op").text();
+    var data = operator + "," + val1 + ","  + val2  + "," + value;
+    $.ajax({
+      type: 'POST',
+      url: "/game/operationgame_update",
+      data: JSON.stringify(data),
+      contentType: "application/json;charset=utf-8",
+      dataType: "json",
+
+      statusCode: {
+        200: function (response) {
+
+
+            // do your stuff here
+            var resp = JSON.stringify(response['responseText'])
+            $(".alert").text(resp);
+            console.log("let's check if it comes here ----> " + resp)
+            if(resp.trim() === '"Incorrect. Try Again"'){
+                document.getElementById("textbox").style.border = "1.5px solid #ff5459";
+            }else{
+                document.getElementById("textbox").style.border = "1.5px solid #62c462";
+                success++;
+            }
+            count++;
+            document.getElementById("point").innerHTML = "Score: " + success + "/" + count;
+            console.log(count.toString());
+        }
+     }
+    });
+
+  });
 </script>
 </html>
 {% endif %}

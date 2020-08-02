@@ -15,7 +15,7 @@
 }
     #result_submit{
         background: #62c462;
-        border: 1px solid #62c462;
+        border: 2px solid #62c462;
         border-radius: 5px;
         padding: 10px;
         color: white;
@@ -32,7 +32,7 @@
         height: 25px;
         font-size: 16px;
         border-radius: 5px;
-        border: none;
+        border: ;
         padding-left: 5px;
     }
 </style>
@@ -44,23 +44,9 @@
     <h2>Please round down your answer</h2>
     <h1 id="first">{{number[0]}}</h1>
     <h1 id="second">{{number[1]}}</h1>
-    <div class="alert alert-success" style="display: none">
+   <div class="alert alert-info" id="message" style="visibility: hidden" >
 
             <h4>
-
-            </h4>
-
-    </div>
-   <div class="alert alert-info" style="display: " >
-
-            <h4>
-            </h4>
-
-    </div>
-       <div class="alert alert-error" style="display: none">
-
-            <h4>
-
             </h4>
 
     </div>
@@ -78,6 +64,7 @@
 <script>
 
 $("#result_submit").click(function() {
+    document.getElementById("message").style.visibility = "visible";
     var getData;
     var value = $('#result').val();
     var val1 = {{number[0]}};
@@ -90,21 +77,20 @@ $("#result_submit").click(function() {
       contentType: "application/json;charset=utf-8",
       dataType: "json",
 
-         statusCode: {
-               200: function (response) {
-                      // do your stuff here
-                      console.log("let's check if it comes here")
-                      var resp = JSON.stringify(response['responseText'])
-                      $(".alert").text(resp);
-                    }
-         }
+     statusCode: {
+        200: function (response) {
+            // do your stuff here
+            var resp = JSON.stringify(response['responseText'])
+            $(".alert").text(resp);
+            console.log("let's check if it comes here ----> " + resp)
+            if(resp.trim() === '"Incorrect. Try Again"'){
+                document.getElementById("result").style.border = "1.5px solid #ff5459";
+            }else{
+                document.getElementById("result").style.border = "1.5px solid #62c462";
+            }
+        }
+     }
 
-<!--      success: function (resp, status, xhr) {-->
-<!--         getData = resp;-->
-<!--         alert(xhr);-->
-<!--         alert(resp);-->
-
-<!--       },-->
     });
 
   });
