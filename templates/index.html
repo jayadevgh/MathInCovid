@@ -4,14 +4,115 @@
    
 	{% if data %}
 	<h3>{{data}}</h3>
-	{% else %}
 
-	<a href="/logout">Logout</a> <br> <br>
-	<form action="" method="POST">
-	  <input type="username" name="username" placeholder="Instagram Username">
-	  <input type="submit" value="Finds">
-	</form>
+	{% else %}
+	<style>
+	p{text-align: justify; text-indent:30px;}
+	img{float: right;}
+}
+</style>
+
+<div class="container">
+ <h1>
+            About
+        </h1>
+	<img src="/static/bootstrap/img/shipport.jpg"
+         alt="A picture of a village used to look in Virginia and how the house school looks like" width="250">
+        <br/>
+
+        <p>
+        In 1635, the first school was finally open. However most children couldn’t afford or couldn’t make it to <br/>
+        the school so their parents homeschooled them. We have made an app to support the difficult times a <br/>
+        student has faced at home. It is very interactive and enjoyable from lessons to teach them and fun <br/>
+        games to add a bit of fun to their studying. As their community builds more schools the app can <br/>
+        still work as practice at any time. <br/>
+    </p>
+
+    <p>
+        Now into more detail about when this happened. Colonial Virginia was politically controlled <br/>
+        by wealthy landowners who relied on tutors and private schools to educate their children. <br/>
+        It also depends on the social class of the family. The boys of upper class families were <br/>
+        sent abroad to receive college or university graduation while lower class stayed at home <br/>
+        and helped out in chores. Colonial people focused more on tasks like cleaning the farm and when <br/>
+		<img src="/static/bootstrap/img/shipport2.jpg" alt="A painting at a ship
+port in Virginia" width="250">
+        they needed help the children did not go to school. Children usually go to school in the winter <br/>
+        since there were fewer farm chores. They played many games including jump rope, tennis, hop <br/>
+        scotch, hide and seek, and many more. Introducing kids' education at those times could <br/>
+        potentially lead to innovations that help the hardworking people do their jobs easier. <br/>
+    </p>
+
+    <p>
+		Math and english are useful in many situations such as speaking fluent english with people <br/>
+        and handling taxing and food problems. The biggest problem about education was the poverty of <br/>
+        the people. Most people lived in one room homes with dirt floors. Wealthy people dominated the <br/>
+
+        community and benefited themselves instead of helping the community so they can increase their <br/>
+		<img src="/static/bootstrap/img/houseschool.jpg" alt="A painting at a ship
+port in Virginia" width="250">
+		prices on goods. Most people couldn’t travel far places and thought that home schooling was <br/>
+		the easier option. Now that you know all the information of the people living in the 1600’s, <br/>
+		please check out our cool games, quizzes, and lessons to become more knowledgeable. <br/>
+    </p>
+	<br/>
+	<br/>
+	<br/>
+	<br>
+
+	<a id="logout" href="/logout">Logout</a>
+    </div>
+
 	{% endif %}
+
+{% else %}
+<style>
+	p{text-align: justify; text-indent:30px;}
+	img{float: right;}
+
+</style>
+<div class="container">
+<h1>
+            About
+        </h1>
+	<img src="/static/bootstrap/img/shipport.jpg"
+         alt="A picture of a village used to look in Virginia and how the house school looks like" width="250">
+        <br/>
+
+        <p>
+        In 1635, the first school was finally open. However most children couldn’t afford or couldn’t make it to <br/>
+        the school so their parents homeschooled them. We have made an app to support the difficult times a <br/>
+        student has faced at home. It is very interactive and enjoyable from lessons to teach them and fun <br/>
+        games to add a bit of fun to their studying. As their community builds more schools the app can <br/>
+        still work as practice at any time. <br/>
+    </p>
+
+    <p>
+        Now into more detail about when this happened. Colonial Virginia was politically controlled <br/>
+        by wealthy landowners who relied on tutors and private schools to educate their children. <br/>
+        It also depends on the social class of the family. The boys of upper class families were <br/>
+        sent abroad to receive college or university graduation while lower class stayed at home <br/>
+        and helped out in chores. Colonial people focused more on tasks like cleaning the farm and when <br/>
+		<img src="/static/bootstrap/img/shipport2.jpg" alt="A painting at a ship
+port in Virginia" width="250">
+        they needed help the children did not go to school. Children usually go to school in the winter <br/>
+        since there were fewer farm chores. They played many games including jump rope, tennis, hop <br/>
+        scotch, hide and seek, and many more. Introducing kids' education at those times could <br/>
+        potentially lead to innovations that help the hardworking people do their jobs easier. <br/>
+    </p>
+
+    <p>
+		Math and english are useful in many situations such as speaking fluent english with people <br/>
+        and handling taxing and food problems. The biggest problem about education was the poverty of <br/>
+        the people. Most people lived in one room homes with dirt floors. Wealthy people dominated the <br/>
+
+        community and benefited themselves instead of helping the community so they can increase their <br/>
+		<img src="/static/bootstrap/img/houseschool.jpg" alt="A painting at a ship
+port in Virginia" width="250">
+		prices on goods. Most people couldn’t travel far places and thought that home schooling was <br/>
+		the easier option. Now that you know all the information of the people living in the 1600’s, <br/>
+		please check out our cool games, quizzes, and lessons to become more knowledgeable. <br/>
+    </p>
+    </div>
 {% endif %}
 {% endblock %}
 #this is html

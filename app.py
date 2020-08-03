@@ -3,7 +3,6 @@
 from flask import Flask, url_for, render_template, request, redirect, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import json
-from instagram import getfollowedby, getname
 from mathgames import pythagorean_game, get_random_numbers, get_random_operator, operation_game
 
 
@@ -26,13 +25,7 @@ class User(db.Model):
 @app.route('/', methods=['GET', 'POST'])
 def home():
     """ Session control"""
-    if not session.get('logged_in'):
-        return render_template('index.html')
-    else:
-        if request.method == 'POST':
-            username = getname(request.form['username'])
-            return render_template('index.html', data=getfollowedby(username))
-        return render_template('index.html')
+    return render_template('index.html')
 
 
 @app.route('/game', methods=['GET','POST'])
@@ -127,6 +120,14 @@ def algQuiz():
 def engQuiz():
     if session.get('logged_in'):
         return render_template('engQuiz.html')
+    else:
+        return render_template('index.html')
+
+
+@app.route('/quiz/histQuiz')
+def histQuiz():
+    if session.get('logged_in'):
+        return render_template('currentEvents.html')
     else:
         return render_template('index.html')
 
