@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+<html lang="en">
+<style>
+    body {
+        margin-left: 20px
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson</title>
+</head>
+<p>
+    <h2>Advanced Math Lessons:</h2>
+    <br/>
+    <h3>Pythagorean Thereom</h3>
+    <a href="https://drive.google.com/file/d/1xUJQkeMTT0vqf1uHPMfgJJQZiSwCOi_N/view?usp=sharing">Click to go to Pythagorean Theroem Video</a>
+    <br/>
+    <br/>
+    <h3>Algebra 1</h3>
+    <a href="https://drive.google.com/file/d/1frK8wwAvEBjEeK2107zYCa0vuT3tlJm-/view?usp=sharing">Click to go to Algebra Video</a>
+    <br/>
+    <br/>
+    <h2>Reading/Writing Lessons:</h2>
+    <br/>
+    <h3>Grammar 1</h3>
+    <video id="grammar" controls="controls" width="800" height="500" src="/static/bootstrap/aud/Lessongrammar.mov"></video>
+    <br/>
+    <br/>
+    <h2>Simple Math Lessons:</h2>
+    <a href="https://drive.google.com/file/d/1SspMpDui7KV5-SnWNQpYwf8MqRtNnKgP/view?usp=sharing">Click to go to Operation Video</a>
+    <br/>
+    <br/>
+    <p>
+        In 1635, the first school was finally open. However most children couldn’t afford or couldn’t make it to <br/>
+        the school so their parents homeschooled them. We have made an app to support the difficult times a <br/>
+        student has faced at home. It is very interactive and enjoyable from lessons to teach them and fun <br/>
+        games to add a bit of fun to their studying. As their community builds more schools the app can <br/>
+        still work as practice at any time. <br/>
+    </p>
+    <img src="https://genealogical.com/wp-content/uploads/jamestown-gettyimages-51246155.jpg" alt="A painting at a ship
+port in Virginia" width="220">
+    <p>
+        Now into more detail about when this happened. Colonial Virginia was politically controlled <br/>
+        by wealthy landowners who relied on tutors and private schools to educate their children. <br/>
+        It also depends on the social class of the family. The boys of upper class families were <br/>
+        sent abroad to receive college or university graduation while lower class stayed at home <br/>
+        and helped out in chores. Colonial people focused more on tasks like cleaning the farm and when <br/>
+        they needed help the children did not go to school. Children usually go to school in the winter <br/>
+        since there were fewer farm chores. They played many games including jump rope, tennis, hop <br/>
+        scotch, hide and seek, and many more. Introducing kids' education at those times could <br/>
+        potentially lead to innovations that help the hardworking people do their jobs easier. <br/>
+    </p>
+    <img src="https://www.christcenteredmall.com/stores/art/dyke/little_red_schoolhouse_zoom.jpg" alt="A picture of a
+very poor school in Virginia" width="220">
+    <p>
+        Math and english are useful in many situations such as speaking fluent english with people <br/>
+        and handling taxing and food problems. The biggest problem about education was the poverty of <br/>
+        the people. Most people lived in one room homes with dirt floors. Wealthy people dominated the <br/>
+        community and benefited themselves instead of helping the community so they can increase their p <br/>
+        rices on goods. Most people couldn’t travel far places and thought that home schooling was the  <br/>
+        easier option. Now that you know all the information of the people living in the 1600’s, you check <br/>
+        out our cool games, quizzes ,and lessons to become more knowledgeable. <br/>
+    </p>
+    <img src="https://www.preservationmaryland.org/wp-content/uploads/2017/09/Claibornes-settlement-on-Kent-Island.jpg"
+         alt="A picture of a village used to look in Virginia and how the house school looks like" width="220">
+
+
+</body>
+</html>
+{% endif %}
+{% endblock %}
