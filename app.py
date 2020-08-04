@@ -132,6 +132,22 @@ def histQuiz():
         return render_template('index.html')
 
 
+@app.route('/quiz/mathQuiz')
+def mathQuiz():
+    if session.get('logged_in'):
+        return render_template('simQuiz.html')
+    else:
+        return render_template('index.html')
+
+
+@app.route('/game/fillblankGame')
+def fillblankGame():
+    if session.get('logged_in'):
+        return render_template('engGame.html')
+    else:
+        return render_template('index.html')
+
+
 @app.route('/lesson')
 def lesson():
     """Lesson Page"""

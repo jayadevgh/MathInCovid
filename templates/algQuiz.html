@@ -25,7 +25,7 @@
         margin-bottom: 20px
     }
 
-    #textbox {
+    .textbox {
         height: 25px;
         font-size: 16px;
         border-radius: 5px;
@@ -62,46 +62,46 @@
     <form id="quiz" name="quiz">
         <h3>Part 1: Multiple Choice</h3><br>
         <p><strong>1. </strong>5x - 4 + 3 + x = 9 - 4 (find x)</p>
-        <input id="mc" type="radio" name="question1" value="1"> 1
-        <input id="mc" type="radio" name="question1" value="5"> 5
-        <input id="mc" type="radio" name="question1" value="4"> 4
+        <input id="question1" type="radio" name="question1" value="1"> 1
+        <input id="question1" type="radio" name="question1" value="5"> 5
+        <input id="question1" type="radio" name="question1" value="4"> 4
         <br/>
         <br/>
         <p><strong>2. </strong>3x + 4 - 1 = 12 (find x)</p>
-        <input id="mc" type="radio" name="question2" value="2"> 2
-        <input id="mc" type="radio" name="question2" value="3"> 3
-        <input id="mc" type="radio" name="question2" value="6"> 6<br>
+        <input id="question2" type="radio" name="question2" value="2"> 2
+        <input id="question2" type="radio" name="question2" value="3"> 3
+        <input id="question2" type="radio" name="question2" value="6"> 6<br>
         <br/>
         <br/>
         <p><strong>3. </strong>16 - 2x = 5x + 9 (find x)</p>
-        <input id="mc" type="radio" name="question3" value="7"> 7
-        <input id="mc" type="radio" name="question3" value="1"> 1
-        <input id="mc" type="radio" name="question3" value="5"> 5<br>
+        <input id="question3" type="radio" name="question3" value="7"> 7
+        <input id="question3" type="radio" name="question3" value="1"> 1
+        <input id="question3" type="radio" name="question3" value="5"> 5<br>
         <br/>
         <br/>
         <p><strong>4. </strong>x + 5 = 10 (find x)</p>
-        <input id="mc" type="radio" name="question4" value="9"> 9
-        <input id="mc" type="radio" name="question4" value="8"> 8
-        <input id="mc" type="radio" name="question4" value="5"> 5<br>
+        <input id="question4" type="radio" name="question4" value="9"> 9
+        <input id="question4" type="radio" name="question4" value="8"> 8
+        <input id="question4" type="radio" name="question4" value="5"> 5<br>
         <br/>
         <br/>
         <p><strong>5. </strong>x * 4 = 24 (find x)</p>
-        <input id="mc" type="radio" name="question5" value="6"> 6
-        <input id="mc" type="radio" name="question5" value="7"> 7
-        <input id="mc" type="radio" name="question5" value="4"> 4<br>
+        <input id="question5" type="radio" name="question5" value="6"> 6
+        <input id="question5" type="radio" name="question5" value="7"> 7
+        <input id="question5" type="radio" name="question5" value="4"> 4<br>
         <br/>
         <br/>
         <h3>Part 2: Text </h3><br>
         <p><strong>6. </strong>2(x - 1) + 8 = 4x - 20 (find x)</p>
-        <input class="span3" id="textbox" type="text" name="question6"><br>
+        <input class="textbox" id="question6" type="text" name="question6"><br>
         <p><strong>7. </strong>3x + 2x - 2 = 23 (find x)</p>
-        <input class="span3" id="textbox" type="text" name="question7"><br>
+        <input class="textbox" id="question7" type="text" name="question7"><br>
         <p><strong>8. </strong>3(9 + 3) + 2x = 36 (find x)</p>
-        <input class="span3" id="textbox" type="text" name="question8"><br>
+        <input class="textbox" id="question8" type="text" name="question8"><br>
         <p><strong>9. </strong>6 - 2(3 - x) = 10 (find x)</p>
-        <input class="span3" id="textbox" type="text" name="question9"><br>
+        <input class="textbox" id="question9" type="text" name="question9"><br>
         <p><strong>10. </strong>2x + 7 = 21 (find x)</p>
-        <input class="span3" id="textbox" type="text" name="question10"><br>
+        <input class="textbox" id="question10" type="text" name="question10"><br>
         <input type=button id="button" value="I'm Finished!" onclick="check();">
     </form>
 
@@ -130,24 +130,54 @@
 
         if (question1 == "1"){
             correct++;
+        document.getElementById("question1").style.border = "1.5px solid #62c462";
+        }else{
+            document.getElementById("question1").style.border = "1.5px solid #ff5459";
         }if (question2 == "3"){
             correct++;
+        document.getElementById("question2").style.border = "1.5px solid #62c462";
+        }else{
+            document.getElementById("question2").style.border = "1.5px solid #ff5459";
         }if (question3 == "1"){
             correct++;
+        document.getElementById("question3").style.border = "1.5px solid #62c462";
+        }else{
+            document.getElementById("question3").style.border = "1.5px solid #ff5459";
         }if (question4 == "5"){
             correct++;
+        document.getElementById("question4").style.border = "1.5px solid #62c462";
+        }else{
+            document.getElementById("question4").style.border = "1.5px solid #ff5459";
         }if (question5 == "6"){
             correct++;
+        document.getElementById("question5").style.border = "1.5px solid #62c462";
+        }else{
+            document.getElementById("question5").style.border = "1.5px solid #ff5459";
         }if (question6 == "13"){
             correct++;
+        document.getElementById("question6").style.border = "1.5px solid #62c462";
+        }else{
+            document.getElementById("question6").style.border = "1.5px solid #ff5459";
         }if (question7 == "5"){
             correct++;
+        document.getElementById("question7").style.border = "1.5px solid #62c462";
+        }else{
+            document.getElementById("question7").style.border = "1.5px solid #ff5459";
         }if (question8 == "0"){
             correct++;
+        document.getElementById("question8").style.border = "1.5px solid #62c462";
+        }else{
+            document.getElementById("question8").style.border = "1.5px solid #ff5459";
         }if (question9 == "5"){
             correct++;
+        document.getElementById("question9").style.border = "1.5px solid #62c462";
+        }else{
+            document.getElementById("question9").style.border = "1.5px solid #ff5459";
         }if (question10 == "7"){
             correct++;
+        document.getElementById("question10").style.border = "1.5px solid #62c462";
+        }else{
+            document.getElementById("question10").style.border = "1.5px solid #ff5459";
         }
 
         var messages = ["Did you try at all?", "Study hard and try again", "Almost there, just study a bit more", "You did it! Great job!"];
